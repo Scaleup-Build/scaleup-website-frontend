@@ -3,6 +3,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import logo from "../assets/logo.png";
+import olukayodeImg from "../assets/Olukayode.png";
+import benedictaImg from "../assets/Benedicta.png";
+import haulatImg from "../assets/Haulat.png";
 
 const testimonials = [
   {
@@ -11,7 +14,7 @@ const testimonials = [
       "This platform makes managing products seamless. The workflow tools are intuitive and the collaboration features keep our entire team aligned on priorities.",
     name: "Olukayode TiOluwani Blessing",
     role: "Product Manager",
-    image: "https://placehold.co/100x100/E8D5B7/333?text=OB",
+    image: olukayodeImg,
     featured: true,
   },
   {
@@ -20,7 +23,7 @@ const testimonials = [
       "The interface is very clean and well-structured. Every element is purposefully placed, making the overall user experience delightful and efficient.",
     name: "Benedicta Atagamen",
     role: "UI/UX Designer",
-    image: "https://placehold.co/100x100/C9B1D9/333?text=BA",
+    image: benedictaImg,
     featured: false,
   },
   {
@@ -29,7 +32,7 @@ const testimonials = [
       "This platform has made product management easier. From ideation to launch, every stage is streamlined with the right tools and clear visibility.",
     name: "Haulat Alobalowa",
     role: "Product Management",
-    image: "https://placehold.co/100x100/A7C7E7/333?text=HA",
+    image: haulatImg,
     featured: false,
   },
 ];
