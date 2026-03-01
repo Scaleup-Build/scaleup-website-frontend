@@ -1,5 +1,6 @@
 import { Star, Menu } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
 const testimonials = [

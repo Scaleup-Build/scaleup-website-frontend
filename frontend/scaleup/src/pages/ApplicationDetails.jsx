@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ChevronDown, X, User } from "lucide-react";
+import { ChevronDown, X, User, Menu } from "lucide-react";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
 const skillOptions = [
@@ -28,9 +29,6 @@ const ApplicationDetails = () => {
 
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [skillsOpen, setSkillsOpen] = useState(false);
-  const [selectedAvailability, setSelectedAvailability] = useState([]);
-  const [selectedVolunteerSkills, setSelectedVolunteerSkills] = useState([]);
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -45,38 +43,58 @@ const ApplicationDetails = () => {
     setSelectedSkills((prev) => prev.filter((s) => s !== skill));
   };
 
-  const toggleAvailability = (skill) => {
-    setSelectedAvailability((prev) =>
-      prev.includes(skill) ? prev.filter((s) => s !== skill) : [...prev, skill]
-    );
-  };
-
-  const toggleVolunteerSkill = (skill) => {
-    setSelectedVolunteerSkills((prev) =>
-      prev.includes(skill) ? prev.filter((s) => s !== skill) : [...prev, skill]
-    );
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ formData, selectedSkills, selectedAvailability, selectedVolunteerSkills });
+    console.log({ formData, selectedSkills });
   };
 
   const inputBase =
     "w-full border border-gray-300 rounded-lg px-4 py-3 text-sm font-[Poppins] text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#193A84] focus:ring-1 focus:ring-[#193A84] transition-colors";
 
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 font-[Poppins]">
+    <div className="min-h-screen flex flex-col bg-white font-[Poppins]">
+      {/* Mobile Nav — hidden on desktop */}
+      <nav className="bg-[#FFFFFF] px-6 py-4 flex items-center justify-between md:hidden">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+            <span className="text-[#193A84] font-extrabold text-base">S</span>
+          </div>
+          <span className="text-[#193A84] text-lg font-bold">ScaleUp</span>
+        </div>
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="text-[#193A84]"
+          aria-label="Toggle menu"
+        >
+          <Menu size={24} />
+        </button>
+      </nav>
+
+      {/* Mobile dropdown menu */}
+      {mobileMenuOpen && (
+        <div className="bg-[#193A84] px-6 pb-4 flex flex-col gap-3 md:hidden">
+          <Link to="/" className="text-white/80 text-sm hover:text-white">Home</Link>
+          <a href="#" className="text-white/80 text-sm hover:text-white">About Us</a>
+          <a href="#" className="text-white/80 text-sm hover:text-white">Products</a>
+          <Link to="/testimonials" className="text-white/80 text-sm hover:text-white">Testimonials</Link>
+          <a href="#" className="text-white/80 text-sm hover:text-white">Contact Us</a>
+        </div>
+      )}
+
+      {/* Logo — desktop only */}
+      <div className="hidden md:flex items-center gap-2 px-6 pt-6">
+        <div className="w-10 h-10 bg-[#193A84] rounded-lg flex items-center justify-center">
+          <span className="text-white font-extrabold text-xl">S</span>
+        </div>
+        <span className="text-2xl font-bold tracking-tight text-[#193A84]">
+          ScaleUp
+        </span>
+      </div>
+
       {/* Header */}
       <div className="pt-10 pb-6 px-6 text-center">
-        <div className="flex items-center justify-center gap-2 mb-6">
-          <div className="w-10 h-10 bg-[#193A84] rounded-lg flex items-center justify-center">
-            <span className="text-white font-extrabold text-xl">S</span>
-          </div>
-          <span className="text-2xl font-bold tracking-tight text-[#193A84]">
-            ScaleUp
-          </span>
-        </div>
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
           Application Details
         </h1>
@@ -87,13 +105,13 @@ const ApplicationDetails = () => {
       </div>
 
       {/* Form */}
-      <div className="flex-1 flex justify-center px-4 md:px-6 pb-12">
+      <div className="flex-1 flex justify-center px-2 pb-12">
         <form
           onSubmit={handleSubmit}
-          className="w-full max-w-3xl bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-10"
+          className="w-full max-w-full p-4 md:px-6 md:py-4"
         >
           {/* First Name + Last Name */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+          <div className="grid grid-cols-2 gap-5 mb-5">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1.5">
                 First Name
@@ -195,7 +213,7 @@ const ApplicationDetails = () => {
           </div>
 
           {/* Volunteer Skills */}
-          <div className="mb-5">
+          <div className="mb-5 relative">
             <label className="block text-sm font-medium text-gray-700 mb-1.5">
               Volunteer Skills
             </label>
@@ -236,7 +254,7 @@ const ApplicationDetails = () => {
               />
             </div>
             {skillsOpen && (
-              <div className="mt-1 border border-gray-200 rounded-lg bg-white shadow-md max-h-48 overflow-y-auto">
+              <div className="absolute right-0 mt-1 w-[220px] md:w-[280px] border border-gray-200 rounded-lg bg-white shadow-lg max-h-48 overflow-y-auto z-20">
                 {skillOptions.map((skill) => (
                   <button
                     key={skill}
@@ -264,78 +282,34 @@ const ApplicationDetails = () => {
             )}
           </div>
 
-          {/* Availability + Checkbox list */}
+          {/* Availability */}
           <div className="mb-5">
             <label className="block text-sm font-medium text-gray-700 mb-1.5">
               Availability (hours per week)
             </label>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <input
-                type="text"
-                name="availability"
-                value={formData.availability}
-                onChange={handleChange}
-                placeholder="20 hrs"
-                className={inputBase}
-              />
-              <div className="border border-gray-200 rounded-lg p-3 max-h-44 overflow-y-auto">
-                {skillOptions.map((skill) => (
-                  <label
-                    key={skill}
-                    className="flex items-center gap-3 py-1.5 cursor-pointer"
-                  >
-                    <div
-                      className={`w-4 h-4 rounded border flex items-center justify-center text-xs shrink-0 ${
-                        selectedAvailability.includes(skill)
-                          ? "bg-[#193A84] border-[#193A84] text-white"
-                          : "border-gray-300"
-                      }`}
-                      onClick={() => toggleAvailability(skill)}
-                    >
-                      {selectedAvailability.includes(skill) && "✓"}
-                    </div>
-                    <span className="text-sm text-gray-700">{skill}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
+            <input
+              type="text"
+              name="availability"
+              value={formData.availability}
+              onChange={handleChange}
+              placeholder="20 hrs"
+              className={inputBase}
+            />
           </div>
 
-          {/* Why do you want to volunteer? + Checkbox list */}
+          {/* Why do you want to volunteer? */}
           <div className="mb-5">
             <label className="block text-sm font-medium text-gray-700 mb-1.5">
               Why do you want to volunteer?
             </label>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <textarea
-                name="whyVolunteer"
-                value={formData.whyVolunteer}
-                onChange={handleChange}
-                placeholder="short note"
-                rows={4}
-                className={`${inputBase} resize-none`}
-              />
-              <div className="border border-gray-200 rounded-lg p-3 max-h-44 overflow-y-auto">
-                {skillOptions.map((skill) => (
-                  <label
-                    key={skill}
-                    className="flex items-center gap-3 py-1.5 cursor-pointer"
-                  >
-                    <div
-                      className={`w-4 h-4 rounded border flex items-center justify-center text-xs shrink-0 ${
-                        selectedVolunteerSkills.includes(skill)
-                          ? "bg-[#193A84] border-[#193A84] text-white"
-                          : "border-gray-300"
-                      }`}
-                      onClick={() => toggleVolunteerSkill(skill)}
-                    >
-                      {selectedVolunteerSkills.includes(skill) && "✓"}
-                    </div>
-                    <span className="text-sm text-gray-700">{skill}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
+            <textarea
+              name="whyVolunteer"
+              value={formData.whyVolunteer}
+              onChange={handleChange}
+              placeholder="short note"
+              rows={1}
+              className={`${inputBase} resize-y`}
+            />
           </div>
 
           {/* Relevant experience */}
@@ -369,12 +343,14 @@ const ApplicationDetails = () => {
           </div>
 
           {/* Submit */}
-          <button
-            type="submit"
-            className="w-full bg-[#193A84] text-white font-semibold text-base py-3.5 rounded-lg hover:bg-[#142e6b] transition-colors cursor-pointer"
-          >
-            Submit
-          </button>
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="w-[118px] md:w-[504px] bg-[#193A84] text-white font-semibold text-base py-3.5 rounded-[5px] md:rounded-[12px] hover:bg-[#142e6b] transition-colors cursor-pointer"
+            >
+              Submit
+            </button>
+          </div>
         </form>
       </div>
 

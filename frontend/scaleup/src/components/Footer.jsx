@@ -1,8 +1,9 @@
 import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#193A84] text-white font-[Poppins] h-[527px] md:h-[487px] flex flex-col justify-between px-6 md:px-16 lg:px-24 py-10 md:py-14">
+    <footer className="bg-[#193A84] text-white font-[Poppins] h-auto flex flex-col justify-between px-6 md:px-16 lg:px-24 py-8 md:py-8">
       <div className="max-w-6xl mx-auto w-full flex flex-col justify-between flex-1">
         {/* Desktop layout */}
         <div className="hidden md:flex w-full justify-between mb-0">
@@ -47,10 +48,10 @@ const Footer = () => {
           <div className="flex flex-col justify-start">
             <h4 className="font-bold text-[19px] mb-7 uppercase">Community</h4>
             <ul className="flex flex-col gap-5 text-[15px] text-white/80">
-              <li><a href="#" className="hover:underline">Testimonials</a></li>
+              <li><Link to="/testimonials" className="hover:underline">Testimonials</Link></li>
               <li><a href="#" className="hover:underline">FAQs</a></li>
               <li><a href="#" className="hover:underline">Team Members</a></li>
-              <li><a href="#" className="hover:underline">Join Us</a></li>
+              <li><Link to="/join-us" className="hover:underline">Join Us</Link></li>
             </ul>
           </div>
         </div>
@@ -100,18 +101,18 @@ const Footer = () => {
             <div className="flex flex-col items-start flex-1">
               <h4 className="font-bold text-[16px] mb-4 uppercase">Community</h4>
               <ul className="flex flex-col gap-3 text-[14px] text-white/80">
-                <li><a href="#" className="hover:underline">Testimonials</a></li>
+                <li><Link to="/testimonials" className="hover:underline">Testimonials</Link></li>
                 <li><a href="#" className="hover:underline">FAQs</a></li>
                 <li><a href="#" className="hover:underline">Team Members</a></li>
-                <li><a href="#" className="hover:underline">Join Us</a></li>
+                <li><Link to="/join-us" className="hover:underline">Join Us</Link></li>
               </ul>
             </div>
           </div>
         </div>
 
         {/* Bottom: line + copyright */}
-        <div>
-          <div className="w-full h-px bg-white/30 mb-5" />
+        <div className="mt-6">
+          <div className="w-full h-px bg-white/30 mb-3" />
           <p className="text-center text-[13px] text-white/60">
             &copy;ScaleUp. Copyright and All rights reserved.
           </p>
