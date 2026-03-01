@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const Footer = () => {
   return (
@@ -10,10 +11,7 @@ const Footer = () => {
           {/* Brand + Socials */}
           <div className="flex flex-col justify-start max-w-[340px]">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-[#193A84] font-extrabold text-xl">S</span>
-              </div>
-              <span className="text-2xl font-bold tracking-tight uppercase">ScaleUp</span>
+              <img src={logo} alt="ScaleUp" className="h-10 w-auto" />
             </div>
             <p className="text-[15px] leading-relaxed text-white/80 mb-5">
               ScaleUp is a collaborative innovation hub focused on building digital products and empowering talent through real world execution
@@ -61,10 +59,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="flex flex-col items-start">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-[#193A84] font-extrabold text-xl">S</span>
-              </div>
-              <span className="text-2xl font-bold tracking-tight uppercase">ScaleUp</span>
+              <img src={logo} alt="ScaleUp" className="h-10 w-auto" />
             </div>
             <p className="text-[14px] leading-relaxed text-white/80 mb-4">
               ScaleUp is a collaborative innovation hub focused on building digital products and empowering talent through real world execution

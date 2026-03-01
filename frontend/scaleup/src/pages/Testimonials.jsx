@@ -2,6 +2,7 @@ import { Star, Menu } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import logo from "../assets/logo.png";
 
 const testimonials = [
   {
@@ -78,10 +79,7 @@ const Testimonials = () => {
       {/* Mobile Nav — hidden on desktop */}
       <nav className="bg-[#FFFFFF] px-6 py-4 flex items-center justify-between md:hidden">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-            <span className="text-[#193A84] font-extrabold text-base">S</span>
-          </div>
-          <span className="text-[#193A84] text-lg font-bold">ScaleUp</span>
+          <img src={logo} alt="ScaleUp" className="h-8 w-auto" />
         </div>
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
