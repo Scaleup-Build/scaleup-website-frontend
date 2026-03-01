@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown, X, User, Menu, Mail } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import logo from "../assets/logo.png";
 
@@ -15,6 +15,7 @@ const skillOptions = [
 ];
 
 const ApplicationDetails = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -50,6 +51,16 @@ const ApplicationDetails = () => {
     console.log({ formData, selectedSkills });
     setSubmitted(true);
   };
+
+  // Auto-redirect after submission
+  useEffect(() => {
+    if (submitted) {
+      const timer = setTimeout(() => {
+        navigate("/testimonials"); // TODO: change to "/" when home page is ready
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitted, navigate]);
 
   const inputBase =
     "w-full border border-gray-300 rounded-lg px-4 py-3 text-sm font-[Poppins] text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#193A84] focus:ring-1 focus:ring-[#193A84] transition-colors";
