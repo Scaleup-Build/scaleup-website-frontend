@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, X, User, Menu } from "lucide-react";
+import { ChevronDown, X, User, Menu, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
@@ -29,6 +29,7 @@ const ApplicationDetails = () => {
 
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [skillsOpen, setSkillsOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -46,6 +47,7 @@ const ApplicationDetails = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ formData, selectedSkills });
+    setSubmitted(true);
   };
 
   const inputBase =
@@ -54,9 +56,30 @@ const ApplicationDetails = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white font-[Poppins]">
+    <div className="min-h-screen flex flex-col bg-white font-[Poppins] relative">
+      {/* Thank You Overlay */}
+      {submitted && (
+        <div className="fixed inset-0 z-50 flex flex-col">
+          {/* Blurred background of the underlying page */}
+          <div className="absolute inset-0 backdrop-blur-[2px]" />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-[rgba(51,51,51,0.85)]" />
+          {/* Centered content */}
+          <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 text-center">
+            <Mail size={90} className="text-white mb-8" strokeWidth={1.5} />
+            <h1 className="text-white text-4xl md:text-5xl font-bold mb-5 font-[Poppins]">
+              Thank You!
+            </h1>
+            <p className="text-white text-base md:text-lg font-[Poppins] max-w-md leading-relaxed">
+              Your application has been submitted successfully. We will get back
+              to you shortly.
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* Mobile Nav — hidden on desktop */}
-      <nav className="bg-[#FFFFFF] px-6 py-4 flex items-center justify-between md:hidden">
+      <nav className="bg-[#FFFFFF] px-6 py-4 flex items-center justify-between md:hidden relative z-[60]">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
             <span className="text-[#193A84] font-extrabold text-base">S</span>
