@@ -103,7 +103,7 @@ const Home = () => {
           TOOLS / TECH STACK BAR
          ═══════════════════════════════════════ */}
       <section className="bg-[#1E4E8C4D] py-4 md:py-6">
-        <div className="max-w-4xl mx-auto flex items-center justify-between px-6">
+        <div className="flex items-center justify-between px-6 md:px-16 lg:px-32">
           {tools.map((tool) => (
             <a
               key={tool.name}
