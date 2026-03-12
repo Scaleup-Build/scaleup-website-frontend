@@ -58,7 +58,7 @@ export default function FAQPage() {
           </div>
         </div>
 
-        {/* ================= DESKTOP LAYOUT ================= */
+        {/* ================= DESKTOP LAYOUT ================= */}
         <div className="hidden lg:grid grid-cols-2 gap-2 items-start mt-8 px-8">
           {/* LEFT COLUMN */}
           <div className="">
