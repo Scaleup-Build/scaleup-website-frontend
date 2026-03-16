@@ -3,7 +3,18 @@ import { ChevronDown, X, User, Mail } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import { post } from "../utils/api";
 import logo from "../assets/logo.png";
+
+const errorMessage = (err) => {
+  if (err.status === 0)
+    return "Unable to reach our servers. Please check your internet connection and try again.";
+  if (err.status >= 500)
+    return "Our server encountered an issue. Please try again in a moment.";
+  if (err.status === 404)
+    return "This service is temporarily unavailable. Please try again later.";
+  return "Something went wrong. Please try again.";
+};
 
 const skillOptions = [
   "Software engineering",
@@ -33,6 +44,9 @@ const ApplicationDetails = () => {
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [skillsOpen, setSkillsOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -47,10 +61,47 @@ const ApplicationDetails = () => {
     setSelectedSkills((prev) => prev.filter((s) => s !== skill));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ formData, selectedSkills });
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError(null);
+    try {
+      const payload = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phoneNumber: formData.phone,
+        location: formData.location,
+        linkedIn: formData.linkedin,
+        skills: selectedSkills,
+        availability: formData.availability,
+        whyVolunteer: formData.whyVolunteer,
+        relevantExperience: formData.experience,
+        cv: formData.cv,
+      };
+      const res = await post("/api/applications", payload);
+      console.log("Application submitted:", res);
+      // Reset form fields
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        location: "",
+        linkedin: "",
+        availability: "",
+        whyVolunteer: "",
+        experience: "",
+        cv: "",
+      });
+      setSelectedSkills([]);
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      setSubmitError(errorMessage(err));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Auto-redirect after submission
@@ -323,13 +374,13 @@ const ApplicationDetails = () => {
             <label className="block text-sm font-medium text-gray-700 mb-1.5">
               Relevant experience
             </label>
-            <input
-              type="url"
+            <textarea
               name="experience"
               value={formData.experience}
               onChange={handleChange}
-              placeholder="link"
-              className={inputBase}
+              placeholder="Briefly describe relevant experience"
+              rows={3}
+              className={`${inputBase} resize-y`}
             />
           </div>
 
@@ -352,11 +403,18 @@ const ApplicationDetails = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="w-[118px] md:w-[504px] bg-[#193A84] text-white font-semibold text-base py-3.5 rounded-[5px] md:rounded-[12px] hover:bg-[#142e6b] transition-colors cursor-pointer"
+              disabled={isSubmitting}
+              className="w-[118px] md:w-[504px] bg-[#193A84] text-white font-semibold text-base py-3.5 rounded-[5px] md:rounded-[12px] hover:bg-[#142e6b] transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Submit
+              {isSubmitting ? "Submitting..." : "Submit"}
             </button>
           </div>
+          {/* Inline Error (below submit) */}
+          {submitError && (
+            <div className="mt-4 bg-red-50 border border-red-200 rounded-lg p-3 text-center">
+              <p className="text-red-700 font-medium text-sm">❌ {submitError}</p>
+            </div>
+          )}
         </form>
       </div>
 

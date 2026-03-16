@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { post } from "../utils/api";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import heroImg from "../assets/images/comtact.jpg";
@@ -10,6 +11,41 @@ import phone2 from "../assets/iPhone 16 Pro(1).png";
    ────────────────────────────────────────────── */
 const Products = () => {
   const [notifyEmail, setNotifyEmail] = useState("");
+  const [notifySubmitting, setNotifySubmitting] = useState(false);
+  const [notifyMessage, setNotifyMessage] = useState(null);
+
+  const handleNotify = async () => {
+    // client-side validation
+    const email = notifyEmail?.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) return setNotifyMessage("Please enter an email address.");
+    if (!emailRegex.test(email)) return setNotifyMessage("Please enter a valid email address.");
+    setNotifySubmitting(true);
+    setNotifyMessage(null);
+    try {
+      await post("/api/waitlist", { email: notifyEmail, source: "products" });
+      setNotifyMessage("Thanks — we'll notify you when it's ready.");
+      setNotifyEmail("");
+    } catch (err) {
+      console.error(err);
+      if (err && err.status === 400) {
+        const body = err.body;
+        if (body && typeof body === 'object') {
+          if (body.details && body.details.email) {
+            setNotifyMessage("Please enter a valid email address.");
+            return;
+          }
+          if (body.error && /email/i.test(body.error)) {
+            setNotifyMessage("Please enter a valid email address.");
+            return;
+          }
+        }
+      }
+      setNotifyMessage("Unable to sign up. Please try again later.");
+    } finally {
+      setNotifySubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col font-[Poppins]">
@@ -65,10 +101,18 @@ const Products = () => {
                 placeholder="Enter email address"
                 className="flex-1 bg-transparent pl-3 md:pl-4 pr-2 py-1.5 text-xs md:text-sm text-gray-800 placeholder-gray-400 focus:outline-none min-w-0"
               />
-              <button className="flex-shrink-0 bg-[#2FB7A3] hover:bg-[#26a090] text-white font-semibold text-xs md:text-sm px-4 md:px-6 py-2 md:py-2.5 rounded-[100px] whitespace-nowrap transition-colors cursor-pointer">
-                Notify Me
+              <button
+                type="button"
+                onClick={handleNotify}
+                disabled={notifySubmitting}
+                className="flex-shrink-0 bg-[#2FB7A3] hover:bg-[#26a090] text-white font-semibold text-xs md:text-sm px-4 md:px-6 py-2 md:py-2.5 rounded-[100px] whitespace-nowrap transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {notifySubmitting ? "Sending..." : "Notify Me"}
               </button>
             </div>
+            {notifyMessage && (
+              <p className="mt-3 text-sm text-gray-700">{notifyMessage}</p>
+            )}
           </div>
 
           {/* ── Phone mockups ── */}
