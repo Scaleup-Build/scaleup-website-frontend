@@ -20,7 +20,9 @@ const Navbar = ({ mobileOnly = false }) => {
         <nav className="hidden md:flex items-center justify-between bg-white px-6 lg:px-16 py-4 font-[Poppins]">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <img src={logo} alt="ScaleUp" className="h-10 w-auto" />
+            <Link to="/">
+              <img src={logo} alt="ScaleUp" className="h-10 w-auto" />
+            </Link>
           </div>
 
           {/* Center links */}
@@ -52,7 +54,9 @@ const Navbar = ({ mobileOnly = false }) => {
       {/* Mobile Nav — hidden on desktop */}
       <nav className="bg-white px-6 py-4 flex items-center justify-between md:hidden relative z-[60] font-[Poppins]">
         <div className="flex items-center gap-2">
-          <img src={logo} alt="ScaleUp" className="h-8 w-auto" />
+          <Link to="/">
+            <img src={logo} alt="ScaleUp" className="h-8 w-auto" />
+          </Link>
         </div>
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

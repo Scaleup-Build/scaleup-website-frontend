@@ -94,7 +94,9 @@ const ApplicationDetails = () => {
 
       {/* Logo — desktop only */}
       <div className="hidden md:flex items-center gap-2 px-6 pt-6">
-        <img src={logo} alt="ScaleUp" className="h-10 w-auto" />
+        <Link to="/">
+          <img src={logo} alt="ScaleUp" className="h-10 w-auto" />
+        </Link>
       </div>
 
       {/* Header */}

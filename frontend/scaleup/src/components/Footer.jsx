@@ -11,7 +11,9 @@ const Footer = () => {
           {/* Brand + Socials */}
           <div className="flex flex-col justify-start max-w-[340px]">
             <div className="flex items-center gap-3 mb-5">
-              <img src={logo} alt="ScaleUp" className="h-10 w-auto" />
+              <Link to="/">
+                <img src={logo} alt="ScaleUp" className="h-10 w-auto" />
+              </Link>
             </div>
             <p className="text-[15px] leading-relaxed text-white/80 mb-5">
               ScaleUp is a collaborative innovation hub focused on building digital products and empowering talent through real world execution
@@ -59,7 +61,9 @@ const Footer = () => {
           {/* Brand */}
           <div className="flex flex-col items-start">
             <div className="flex items-center gap-3 mb-3">
-              <img src={logo} alt="ScaleUp" className="h-10 w-auto" />
+              <Link to="/">
+                <img src={logo} alt="ScaleUp" className="h-10 w-auto" />
+              </Link>
             </div>
             <p className="text-[14px] leading-relaxed text-white/80 mb-4">
               ScaleUp is a collaborative innovation hub focused on building digital products and empowering talent through real world execution
