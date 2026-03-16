@@ -43,7 +43,7 @@ async function post(path, data) {
       parsed = text;
     }
     console.error(`[api] POST ${url} → ${res.status}`, parsed);
-    const message = (parsed && parsed.error) ? parsed.error : `Request failed: ${res.status}`;
+    const message = (parsed && (parsed.error || parsed.message)) ? (parsed.error || parsed.message) : `Request failed: ${res.status}`;
     throw new ApiError(message, res.status, parsed);
   }
 

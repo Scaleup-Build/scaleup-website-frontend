@@ -66,25 +66,34 @@ const Home = () => {
     setNotifyMessage(null);
     try {
       await post("/api/waitlist", { email: notifyEmail, source: "home" });
-      setNotifyMessage("Thanks — we'll notify you when it's ready.");
+      setNotifyMessage("Thanks. We'll notify you when it's ready.");
       setNotifyEmail("");
     } catch (err) {
       console.error(err);
-      // server-guided messages
-      if (err && err.status === 400) {
-        // try to detect email-specific validation errors
-        const body = err.body;
-        if (body && typeof body === 'object') {
-          if (body.details && body.details.email) {
-            setNotifyMessage("Please enter a valid email address.");
-            return;
-          }
-          if (body.error && /email/i.test(body.error)) {
-            setNotifyMessage("Please enter a valid email address.");
-            return;
-          }
+      const body = err && err.body;
+
+      if (
+        err &&
+        (err.status === 409 ||
+          (body && typeof body === "object" && ((body.error && /already/i.test(body.error)) || (body.message && /already/i.test(body.message)))))
+      ) {
+        setNotifyMessage("This email is already on our waitlist.");
+        return;
+      }
+
+      if (err && err.status === 400 && body && typeof body === "object") {
+        if (body.details && body.details.email) {
+          setNotifyMessage("Please enter a valid email address.");
+          return;
+        }
+
+        const validationMessage = body.error || body.message || "";
+        if (/invalid email|valid email|email is invalid/i.test(validationMessage)) {
+          setNotifyMessage("Please enter a valid email address.");
+          return;
         }
       }
+
       setNotifyMessage("Unable to sign up. Please try again later.");
     } finally {
       setNotifySubmitting(false);
