@@ -83,10 +83,10 @@ export default function TeamPage() {
     <div className="min-h-screen flex flex-col font-[Poppins]">
       <Navbar />
       <header
-        className="relative w-full h-[250px] md:h-[300px] flex items-center justify-center overflow-hidden bg-cover bg-center"
+        className="relative w-full h-[320px] md:h-[420px] lg:h-[480px] flex items-center justify-center overflow-hidden bg-cover bg-center"
         style={{ backgroundImage: `url(${teamBg})` }}
       >
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 text-center px-4">
           <h1 className="font-bold text-primary text-4xl lg:text-6xl mb-2">
             Our Team

@@ -89,7 +89,6 @@ const Navbar = ({ mobileOnly = false }) => {
         <Link to="/" className="text-[#193A84] text-sm font-medium py-2 border-b border-gray-100 hover:text-[#142e6b] transition-colors" onClick={() => setMobileMenuOpen(false)}>Home</Link>
         <Link to="/about" className="text-[#193A84] text-sm font-medium py-2 border-b border-gray-100 hover:text-[#142e6b] transition-colors" onClick={() => setMobileMenuOpen(false)}>About Us</Link>
         <Link to="/products" className="text-[#193A84] text-sm font-medium py-2 border-b border-gray-100 hover:text-[#142e6b] transition-colors" onClick={() => setMobileMenuOpen(false)}>Products</Link>
-        <Link to="/faq" className="text-[#193A84] text-sm font-medium py-2 border-b border-gray-100 hover:text-[#142e6b] transition-colors" onClick={() => setMobileMenuOpen(false)}>FAQs</Link>
         <Link to="/contact" className="text-[#193A84] text-sm font-medium py-2 border-b border-gray-100 hover:text-[#142e6b] transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link>
         <Link to="/join-us" className="text-[#193A84] text-sm font-medium py-2 hover:text-[#142e6b] transition-colors" onClick={() => setMobileMenuOpen(false)}>Join Us</Link>
       </div>

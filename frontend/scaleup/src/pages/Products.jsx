@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import heroImg from "../assets/Subtract.png";
+import heroImg from "../assets/images/comtact.jpg";
 import phone1 from "../assets/iPhone 16 Pro.png";
 import phone2 from "../assets/iPhone 16 Pro(1).png";
 
@@ -19,13 +19,10 @@ const Products = () => {
       {/* ═══════════════════════════════════════
           HERO BANNER
          ═══════════════════════════════════════ */}
-      <section className="relative w-full h-[320px] md:h-[420px] lg:h-[480px] overflow-hidden">
-        {/* Background image */}
-        <img
-          src={heroImg}
-          alt="ScaleUp team collaborating"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+      <section
+        className="relative w-full h-[320px] md:h-[420px] lg:h-[480px] overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroImg})` }}
+      >
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/50" />
         {/* Centered text */}

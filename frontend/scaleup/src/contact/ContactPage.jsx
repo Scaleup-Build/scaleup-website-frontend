@@ -62,7 +62,7 @@ const ContactPage = () => {
     <div className="min-h-screen flex flex-col font-[Poppins]">
       <Navbar />
       <header
-        className="relative w-full h-[250px] md:h-[300px] flex items-center justify-center overflow-hidden bg-cover bg-center"
+        className="relative w-full h-[320px] md:h-[420px] lg:h-[480px] flex items-center justify-center overflow-hidden bg-cover bg-center"
         style={{ backgroundImage: `url(${contactBg})` }}
       >
         <div className="absolute inset-0 bg-black/50"></div>

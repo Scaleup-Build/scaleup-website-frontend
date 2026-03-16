@@ -11,10 +11,10 @@ export default function FAQPage() {
       <Navbar />
       {/* HERO */}
       <header
-        className="relative w-full h-[250px] md:h-[300px] flex items-center justify-center overflow-hidden bg-cover bg-center"
+        className="relative w-full h-[320px] md:h-[420px] lg:h-[480px] flex items-center justify-center overflow-hidden bg-cover bg-center"
         style={{ backgroundImage: `url(${FAQBg})` }}
       >
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 px-4 text-center">
           <h1 className="font-bold text-primary text-2xl md:text-4xl lg:text-5xl mb-2 md:mb-4">
             Frequently Asked Questions
