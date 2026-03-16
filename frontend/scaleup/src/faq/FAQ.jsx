@@ -1,11 +1,14 @@
 import FAQBg from "../assets/images/comtact.jpg";
 import SimpleAccordion from "./FaqAcc";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 
 export default function FAQPage() {
   return (
-    <>
+    <div className="min-h-screen flex flex-col font-[Poppins]">
+      <Navbar />
       {/* HERO */}
       <header
         className="relative w-full h-[250px] md:h-[300px] flex items-center justify-center overflow-hidden bg-cover bg-center"
@@ -92,6 +95,7 @@ export default function FAQPage() {
           </div>
         </div>
       </main>
-    </>
+      <Footer />
+    </div>
   );
 }

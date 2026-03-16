@@ -75,8 +75,8 @@ const TestimonialCard = ({ testimonial }) => {
 const Testimonials = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Navbar — mobile only on this page */}
-      <Navbar mobileOnly />
+      {/* Navbar */}
+      <Navbar />
 
       {/* Hero heading area */}
       <section className="bg-[#193A84] h-[256px] md:h-[270px] flex flex-col items-center justify-center px-6 text-center">

@@ -3,6 +3,8 @@ import contactBg from "../assets/images/comtact.jpg";
 import emailIcon from "../assets/icons/EnvelopeSimple.svg";
 import globeIcon from "../assets/icons/GlobeHemisphereEast.svg";
 import phoneIcon from "../assets/icons/PhoneOutgoing.svg";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -57,7 +59,8 @@ const ContactPage = () => {
   };
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col font-[Poppins]">
+      <Navbar />
       <header
         className="relative w-full h-[250px] md:h-[300px] flex items-center justify-center overflow-hidden bg-cover bg-center"
         style={{ backgroundImage: `url(${contactBg})` }}
@@ -262,7 +265,8 @@ const ContactPage = () => {
           </div>
         </section>
       </main>
-    </>
+      <Footer />
+    </div>
   );
 };
 
