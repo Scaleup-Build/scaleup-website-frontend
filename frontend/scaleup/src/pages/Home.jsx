@@ -4,13 +4,13 @@ import { post } from "../utils/api";
 import { Check } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import heroImg from "../assets/WhatsApp_Image_2026-02-07_at_2.11.15_AM-removebg-preview 1.png"
+import heroImg from "../assets/WhatsApp_Image_2026-02-07_at_2.11.15_AM-removebg-preview 1.png";
 import aboutImg2 from "../assets/Rectangle 5.png";
 import aboutImg3 from "../assets/Rectangle 6.png";
 import phone1 from "../assets/iPhone 16 Pro.png";
 import phone2 from "../assets/images/phone3.jpg";
+import helloIcon from "../assets/icons/icon_logo.svg"
 import ToolsCarousel from "../components/ToolsCarousel";
-
 
 /* ──────────────────────────────────────────────
    About section bullet items
@@ -47,7 +47,8 @@ const Home = () => {
     const email = notifyEmail?.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email) return setNotifyMessage("Please enter an email address.");
-    if (!emailRegex.test(email)) return setNotifyMessage("Please enter a valid email address.");
+    if (!emailRegex.test(email))
+      return setNotifyMessage("Please enter a valid email address.");
     setNotifySubmitting(true);
     setNotifyMessage(null);
     try {
@@ -61,7 +62,10 @@ const Home = () => {
       if (
         err &&
         (err.status === 409 ||
-          (body && typeof body === "object" && ((body.error && /already/i.test(body.error)) || (body.message && /already/i.test(body.message)))))
+          (body &&
+            typeof body === "object" &&
+            ((body.error && /already/i.test(body.error)) ||
+              (body.message && /already/i.test(body.message)))))
       ) {
         setNotifyMessage("This email is already on our waitlist.");
         return;
@@ -74,7 +78,9 @@ const Home = () => {
         }
 
         const validationMessage = body.error || body.message || "";
-        if (/invalid email|valid email|email is invalid/i.test(validationMessage)) {
+        if (
+          /invalid email|valid email|email is invalid/i.test(validationMessage)
+        ) {
           setNotifyMessage("Please enter a valid email address.");
           return;
         }
@@ -132,7 +138,7 @@ const Home = () => {
         </div>
       </section>
 
-      <ToolsCarousel/>
+      <ToolsCarousel />
 
       {/* ═══════════════════════════════════════
           ABOUT SCALEUP SECTION
@@ -196,19 +202,14 @@ const Home = () => {
       {/* ═══════════════════════════════════════
           OUR PRODUCTS SECTION
          ═══════════════════════════════════════ */}
-      <section
-        id="products"
-        className="bg-white py-8 mb-15 md:py-10"
-      >
+      <section id="products" className="bg-white py-8 mb-15 md:py-10">
         {/* Heading — outside the bordered box */}
         <h2 className="text-2xl md:text-3xl font-inter font-bold text-background text-center mb-8 px-6">
           <span className="text-secondary">Our</span> Products
         </h2>
 
         {/* Bordered content box — full width, gradient contained inside */}
-        <div
-          className="w-full border border-white px-6 lg:px-12 py-5 md:py-8 bg-[#D7DFEA]"
-        >
+        <div className="w-full border border-white px-6 lg:px-12 py-5 md:py-8 bg-[#D7DFEA]">
           <div className="flex flex-col font-poppins md:flex-row items-center gap-10 md:gap-16">
             {/* Text block */}
             <div className="flex-1">
@@ -216,9 +217,18 @@ const Home = () => {
               <button className="inline-flex items-center justify-center bg-[#2FB7A3] text-white font-bold text-xs md:text-sm rounded-[50px] mb-4 transition-all duration-200 ease-out w-[160px] h-[40px] px-[20px] md:w-[220px] md:h-[56px] md:px-[22px] md:py-[16px]">
                 Coming Soon!!!
               </button>
-              <h3 className="text-3xl md:text-4xl font-bold text-[#1a1a2e] mb-4">
-                HelloAgain
-              </h3>
+              <div className="flex gap-2 items-center mb-5">
+                <img
+                  src={helloIcon}
+                  alt="HelloAgain Logo"
+                  className="w-8 h-8 lg:w-10 lg:h-10"
+                />
+
+                <h3 className="text-3xl md:text-4xl font-bold text-[#1a1a2e]">
+                  HelloAgain
+                </h3>
+              </div>
+
               <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-2">
                 Hello Again is a smart communication product built to help
                 brands reconnect with their customers at the right time.
@@ -246,7 +256,9 @@ const Home = () => {
                 </button>
               </div>
               {notifyMessage && (
-                <p className="mt-3 text-sm text-center text-gray-700">{notifyMessage}</p>
+                <p className="mt-3 text-sm text-center text-gray-700">
+                  {notifyMessage}
+                </p>
               )}
             </div>
 
