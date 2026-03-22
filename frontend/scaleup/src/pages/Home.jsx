@@ -8,7 +8,7 @@ import heroImg from "../assets/WhatsApp_Image_2026-02-07_at_2.11.15_AM-removebg-
 import aboutImg2 from "../assets/Rectangle 5.png";
 import aboutImg3 from "../assets/Rectangle 6.png";
 import phone1 from "../assets/iPhone 16 Pro.png";
-import phone2 from "../assets/iPhone 16 Pro(1).png";
+import phone2 from "../assets/images/phone3.jpg";
 import ToolsCarousel from "../components/ToolsCarousel";
 
 
@@ -259,7 +259,7 @@ const Home = () => {
                 <img
                   src={phone2}
                   alt="HelloAgain app screen"
-                  className="absolute bottom-0 left-[44%] w-[49%] h-auto z-[1]"
+                  className="absolute bottom-0 left-[44%] w-[42%] h-auto z-[1]"
                 />
                 {/* Front phone (left, slightly shorter) */}
                 <img

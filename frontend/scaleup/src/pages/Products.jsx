@@ -139,7 +139,7 @@ const Products = () => {
               <img
                 src={phone3}
                 alt="HelloAgain chat interface"
-                className="absolute bottom-0 left-[44%] w-[49%] h-auto drop-shadow-2xl z-[1]"
+                className="absolute bottom-0 left-[44%] w-[42%] h-auto drop-shadow-2xl z-[1]"
               />
               {/* Front phone (left) */}
               <img
