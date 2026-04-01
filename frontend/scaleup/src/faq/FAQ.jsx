@@ -28,9 +28,9 @@ export default function FAQPage() {
         </div>
       </header>
 
-      <section className="relative z-10 -mt-10 md:-mt-14 bg-white rounded-t-[20px] py-8 md:px-6 lg:px-16 md:py-12">
-        <div className="max-w-6xl mx-auto px-4">
-          <main className="p-4">
+      <section className="relative z-10 -mt-10 md:-mt-14 bg-white rounded-t-[20px] py-8 md:py-12">
+        <div className="max-w-6xl mx-auto">
+          <main className="py-4">
             {/* ================= MOBILE LAYOUT ================= */}
             <div className="lg:hidden space-y-8 md:px-8">
               {/* Intro */}
@@ -64,7 +64,7 @@ export default function FAQPage() {
             </div>
 
             {/* ================= DESKTOP LAYOUT ================= */}
-            <div className="hidden lg:grid grid-cols-2 gap-2 items-start mt-8 px-8">
+            <div className="hidden lg:grid grid-cols-2 gap-2 items-start mt-8">
               {/* LEFT COLUMN */}
               <div className="">
                 {/* Intro */}

@@ -83,8 +83,10 @@ const ContactPage = () => {
           </h1>
         </div>
       </header>
-      <section className="relative z-10 -mt-10 md:-mt-14 bg-white rounded-t-[20px] py-16 md:px-6 lg:px-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="relative z-10 -mt-10 md:-mt-14 bg-white rounded-t-[20px] py-16 md:px-6 md:py-24">
+      
+      
+        <div className="max-w-6xl mx-auto">
           {/* Main Content */}
           <section className="pb-10 pt-2 md:pt-4">
           {/* Success Message */}
@@ -98,11 +100,10 @@ const ContactPage = () => {
           )}
 
           {/* Error message moved below submit button for better UX */}
-
           {/* Contact Grid - stacks on mobile, side by side on desktop */}
-          <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-12 lg:gap-20"> 
             {/* Left Column - Contact Info */}
-            <div className="px-4 pt-4 md:p-8">
+            <div className="pt-4">
               <div className="mb-10">
                 <h2 className="text-3xl font-inter md:text-4xl lg:text-5xl font-semibold text-neutral mb-6">
                   Contact Us
@@ -115,8 +116,8 @@ const ContactPage = () => {
                 </p>
               </div>
 
-              <div className="space-y-6 md:space-y-10">
-                {/* Email */}
+               <div className="space-y-6 md:space-y-10"> 
+                {/* {/* Email */}
                 <div className="flex items-center gap-4">
                   <img
                     src={emailIcon}
@@ -266,7 +267,7 @@ const ContactPage = () => {
                   className="block mx-auto bg-main shadow-md text-primary font-semibold font-manrope py-4 px-8 lg:px-12 rounded-4xl hover:bg-main/90 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-base"
                 >
                   {isSubmitting ? "Sending..." : "Submit"}
-                </button>
+                </button> 
                 {/* Inline Success (below submit) */}
                 {isSubmitted && (
                   <div className="mt-4 bg-green-50 border border-green-200 rounded-lg p-3 text-center">
