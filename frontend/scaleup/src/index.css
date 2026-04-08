@@ -57,3 +57,9 @@ body {
 .pause {
   animation-play-state: paused;
 }
+
+@media (hover: none) and (pointer: coarse) and (min-width: 768px) {
+  .home-hero__art {
+    margin-top: 17.5rem;
+  }
+}
