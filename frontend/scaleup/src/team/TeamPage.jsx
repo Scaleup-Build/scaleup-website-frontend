@@ -2,12 +2,8 @@ import teamBg from "../assets/images/team-bg.jpg";
 import franklin from "../assets/images/franklin.jpg";
 import angel from "../assets/images/angel.jpg";
 import benedicta from "../assets/images/benedicta.jpg";
-import daniel from "../assets/images/daniel.jpg";
-import stephanie from "../assets/images/stephanie.jpeg";
-import haulat from "../assets/images/haulat.jpg";
+import adesola from "../assets/images/Adesola.jpeg";
 import james from "../assets/images/james.jpg";
-import tiolu from "../assets/images/tiolu.jpg";
-import ese from "../assets/images/ese.jpeg";
 import TeamCard from "./TeamCard";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -28,20 +24,6 @@ const teamMembers = [
     image: james,
   },
   {
-    name: "Daniel Edet",
-    role: "Lead, Saas Operations/Project Manager",
-    description:
-      "Daniel drives operational excellence by ensuring seamless project execution, optimized workflows, and scalable delivery of our SaaS platform.",
-    image: daniel,
-  },
-  {
-    name: "Olukayode Tioluwanimi Blessing",
-    role: " Product Manager",
-    description:
-      "Blessing Partners with the Product Lead to turn vision into measurable outcomes through research, and cross-functional collaboration.",
-    image: tiolu,
-  },
-  {
     name: "Benedicta Atagamen",
     role: "Lead, UI/UX Design",
     description:
@@ -49,18 +31,11 @@ const teamMembers = [
     image: benedicta,
   },
   {
-    name: " Haulat Alobalowa",
-    role: " Lead, Product Manager ",
+    name: "Adesola Busari",
+    role: "Lead, Software Development",
     description:
-      "Haulat shapes and delivers impactful products by aligning user needs, business goals, and strategic vision into a clear, actionable roadmap.",
-    image: haulat,
-  },
-  {
-    name: "Stephanie Matthew",
-    role: "Lead, Marketing and Growth",
-    description:
-      "Stephanie accelerates brand visibility and customer acquisition through data-driven marketing strategies and growth initiatives.",
-    image: stephanie,
+      "Adesola leads the development team, ensuring high quality code, efficient processes, and timely delivery of innovative software solutions.",
+    image: adesola,
   },
   {
     name: "Angel Egerega",
@@ -68,13 +43,6 @@ const teamMembers = [
     description:
       "Angel safeguards product quality by identifying risks early, strengthening testing processes, and delivering a seamless user experience.",
     image: angel,
-  },
-  {
-    name: "Ese Ayomah",
-    role: " Lead, Content Creation",
-    description:
-      "Ese crafts engaging content that informs, entertains, and connects with audiences, bringing ideas to life across multiple platforms.",
-    image: ese,
   },
 ];
 
