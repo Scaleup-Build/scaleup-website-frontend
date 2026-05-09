@@ -24,7 +24,7 @@ const Footer = () => {
             {/* Socials directly below description */}
             <div className="flex items-center gap-6">
               <a
-                href="https://www.linkedin.com/company/scaleupbuild.ng/"
+                href="https://www.linkedin.com/company/scaleupbuildng/  "
                 rel="noopener noreferrer"
                 target="_blank"
                 className="flex items-center justify-center transition-transform duration-300 hover:scale-110"
@@ -34,7 +34,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://www.instagram.com/scaleup.ng.ltd?igsh=MTYyMW0zd3ZzZ3Bidg=="
+                href="https://www.instagram.com/scaleup_ng.ltd?igsh=Mm1obnBwejloYnFr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center transition-transform duration-300 hover:scale-110"
@@ -43,7 +43,7 @@ const Footer = () => {
                 <FaInstagram size={22} className="text-white" />
               </a>
               <a
-                href="#"
+                href="https://x.com/ScaleUpBuildng_"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center transition-transform duration-300 hover:scale-110"
@@ -53,7 +53,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://www.tiktok.com/@scaleup87?_r=1&_t=ZS-93YgtI73Rib"
+                href="https://vt.tiktok.com/ZS9kfjJcE/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center transition-transform duration-300 hover:scale-110"
@@ -162,7 +162,7 @@ const Footer = () => {
               {/* Socials below Explore links */}
               <div className="flex items-center gap-4 mt-5">
                 <a
-                  href="https://www.linkedin.com/company/scaleupbuild.ng/"
+                  href="https://www.linkedin.com/company/scaleupbuildng/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center transition-transform duration-300 hover:scale-110"
@@ -172,7 +172,7 @@ const Footer = () => {
                 </a>
 
                 <a
-                  href="https://www.instagram.com/scaleup.ng.ltd?igsh=MTYyMW0zd3ZzZ3Bidg=="
+                  href="https://www.instagram.com/scaleup_ng.ltd?igsh=Mm1obnBwejloYnFr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center transition-transform duration-300 hover:scale-110"
@@ -191,7 +191,7 @@ const Footer = () => {
                 </a>
 
                 <a
-                  href="https://www.tiktok.com/@scaleup87?_r=1&_t=ZS-93YgtI73Rib"
+                  href="https://vt.tiktok.com/ZS9kfjJcE/"
                   target="_blank"
                   className="flex items-center justify-center transition-transform duration-300 hover:scale-110"
                   aria-label="Tiktok"
