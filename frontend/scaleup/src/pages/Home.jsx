@@ -271,7 +271,7 @@ const Home = () => {
                 <img
                   src={phone2}
                   alt="HelloAgain app screen"
-                  className="absolute bottom-0 left-[44%] w-[42%] h-auto z-[1]"
+                  className="absolute -bottom-4 left-[35%] w-[55%] h-auto z-[1]"
                 />
                 {/* Front phone (left, slightly shorter) */}
                 <img
