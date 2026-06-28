@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo3.png";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -19,9 +19,9 @@ const Navbar = ({ mobileOnly = false }) => {
       {!mobileOnly && (
         <nav className="hidden md:flex items-center justify-between bg-white px-6 lg:px-16 py-4">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <Link to="/">
-              <img src={logo} alt="ScaleUp" className="h-10 w-auto" />
+              <img src={logo} alt="ScaleUp" className="h-14 sm:h-16 lg:h-20 w-auto object-contain shrink-0" />
             </Link>
           </div>
 
@@ -53,9 +53,9 @@ const Navbar = ({ mobileOnly = false }) => {
 
       {/* Mobile Nav — hidden on desktop */}
       <nav className="bg-white px-6 py-4 flex items-center justify-between md:hidden relative z-[60]">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <Link to="/">
-            <img src={logo} alt="ScaleUp" className="h-8 w-auto" />
+            <img src={logo} alt="ScaleUp" className="h-14 sm:h-16 w-auto object-contain shrink-0" />
           </Link>
         </div>
         <button
