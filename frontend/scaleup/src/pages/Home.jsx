@@ -101,7 +101,7 @@ const Home = () => {
           HERO SECTION
          ═══════════════════════════════════════ */}
       <section className="home-hero bg-white px-6 lg:px-16 pt-6 md:pt-12 pb-0">
-        <div className="home-hero__inner w-full flex flex-col md:flex-row items-center gap-10 md:gap-16">
+        <div className="home-hero__inner w-full flex flex-col md:flex-row items-center md:items-end gap-10 md:gap-16">
           {/* Text */}
           <div className="home-hero__text flex-1 text-left">
             <h1 className="text-3xl font-inter md:text-[48px] lg:text-5xl font-bold text-[#1E4E8C] leading-tight mb-6">

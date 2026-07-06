@@ -32,7 +32,7 @@ export default function FAQPage() {
         <div className="max-w-6xl mx-auto">
           <main className="py-4">
             {/* ================= MOBILE LAYOUT ================= */}
-            <div className="lg:hidden space-y-8 md:px-8">
+            <div className="lg:hidden space-y-8 px-6 md:px-8">
               {/* Intro */}
               <div>
                 <h2 className="mt-3 mb-4 font-inter font-semibold text-2xl md:text-3xl">
