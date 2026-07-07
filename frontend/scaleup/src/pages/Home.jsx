@@ -108,7 +108,7 @@ const Home = () => {
               Building Products, People, and Possibilities Together
             </h1>
             <p className="text-[#1E4E8C] font-poppins font-normal text-[16px] leading-[34px] md:font-medium md:text-[22px] md:leading-[34px] mb-8 max-w-xl md:mx-0">
-              ScaleUp is a technology innovation company providing software development,
+              ScaleUpBuild is a technology innovation company providing software development,
               Software-as-a-service (SaaS) solutions,digital product development, 
               business technology solutuions, and information technology services. We
               design and build intelligent digital products that help business automate processes,
