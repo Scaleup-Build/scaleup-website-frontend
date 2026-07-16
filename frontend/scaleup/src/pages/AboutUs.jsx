@@ -91,10 +91,10 @@ const AboutUs = () => {
           {/* Text — order 3 on mobile, right on desktop */}
           <div className="order-3 md:order-none flex-1 px-6 md:px-0">
             <h2 className="text-2xl font-inter md:text-3xl font-bold text-[#1a1a2e] mb-5">
-              About <span className="text-[#193A84]">ScaleUp</span>
+              About <span className="text-[#193A84]">ScaleUpBuild</span>
             </h2>
             <p className="text-[#193A84] md:text-xl md:text-base leading-relaxed mb-8">
-              ScaleUp is a growing tech and innovation community built on
+              ScaleUpBuild is a growing tech and innovation community built on
               collaboration, learning, and execution. We bring together
               passionate individuals to solve real problems by building digital
               products that matter.

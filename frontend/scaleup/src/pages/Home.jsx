@@ -166,7 +166,7 @@ const Home = () => {
           {/* Text content */}
           <div className="order-1 md:order-2 flex-1 px-6 md:px-4 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-5">
-              About ScaleUp
+              About ScaleUpBuild
             </h2>
             <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-7">
               ScaleUp is a collaborative innovation community where talents come
