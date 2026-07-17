@@ -2,7 +2,7 @@ import { FaInstagram, FaLinkedin, FaTiktok, FaTwitter } from "react-icons/fa";
 // import { FaTiktok } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo2.png";
-
+import log from "../assets/log.jpeg"
 const Footer = () => {
   return (
     <footer className="bg-[#193A84] text-primary h-auto flex flex-col justify-between px-6 md:px-16 lg:px-24 py-8 md:py-8">
@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="flex flex-col justify-start max-w-[340px]">
             <div className="flex items-center gap-3 mb-5">
               <Link to="/">
-                <img src={logo} alt="ScaleUp Logo" className="h-10 w-auto" />
+                <img src={log} alt="ScaleUp Logo" className="h-10 w-auto" />
               </Link>
             </div>
             <p className="text-[15px] leading-relaxed mb-5">
